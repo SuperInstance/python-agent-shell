@@ -1,22 +1,25 @@
 # python-agent-shell
 
-Minimal interactive Python shell for SuperInstance fleet agents. PLATO integration, fleet-coordinate access, constraint theory tools — all through a REPL you can pipe into an agent's runtime.
+**Interactive Python REPL for SuperInstance fleet agents.**
 
-## Install
+A minimal, import-ready shell that gives agents PLATO integration, fleet-coordinate access, and constraint theory tools through a REPL you can pipe into any agent runtime.
+
+## What It Is
+
+Point any agent at this shell and it gets a live REPL with fleet utilities pre-loaded. No config. No setup. Just clone, install, and the agent starts talking.
+
+## Quick Start
 
 ```bash
 git clone https://github.com/SuperInstance/python-agent-shell
 cd python-agent-shell
 pip install -r requirements.txt
-```
 
-## Quick Start
-
-```bash
+# Start the REPL
 python3 src/shell.py [vessel-id]
 ```
 
-Opens a REPL with fleet utilities pre-loaded. The `vessel-id` arg sets which agent context the shell runs under (auto-detects if omitted).
+The `vessel-id` arg sets which agent context the shell runs under (auto-detects if omitted).
 
 ```python
 # Inside the shell
@@ -27,16 +30,22 @@ Opens a REPL with fleet utilities pre-loaded. The `vessel-id` arg sets which age
 
 ## What's Working
 
-- Core REPL with eval and help
+- Core REPL with `eval()` and `help()`
 - Command history
-- Fleet utility imports
+- Fleet utility imports (PLATO, coordinate access, constraint tools)
 
-## What's Coming
+## Architecture
 
-- PLATO room read/write
-- Fleet-coordinate import
-- Constraint inference hooks
+```
+src/
+  shell.py       # Main REPL entry point
+requirements.txt # Dependencies
+```
 
 ## Part of the SuperInstance Fleet
 
-See [SuperInstance](https://github.com/SuperInstance) for the full fleet.
+This is a fleet utility — one of many tools that Cocapn agents pick up and use. See [SuperInstance](https://github.com/SuperInstance) for the full fleet.
+
+## License
+
+MIT
